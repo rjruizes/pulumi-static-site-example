@@ -1,0 +1,24 @@
+name: Pulumi
+on:
+  push:
+    branches:
+      - main
+jobs:
+  update:
+    name: Update
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
+      - name: Configure Pulumi
+        uses: pulumi/auth-actions@v1
+        with:
+          organization: rjruizes
+          requested-token-type: urn:pulumi:token-type:access_token:organization
+      - run: npm install
+      - uses: pulumi/actions@v6
+        with:
+          command: up
+          stack-name: rjruizes/pulumi-contest-yaml # When using an individual account, only use stack-name.
