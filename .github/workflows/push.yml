@@ -25,4 +25,5 @@ jobs:
       - uses: pulumi/actions@v6
         with:
           command: up
-          stack-name: rjruizes/pulumi-contest-yaml # When using an individual account, only use stack-name.
+          stack-name: pulumi-contest-yaml
+
