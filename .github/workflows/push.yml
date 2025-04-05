@@ -19,6 +19,7 @@ jobs:
         uses: pulumi/auth-actions@v1
         with:
           organization: rjruizes
+          scope: user:rjruizes
           requested-token-type: urn:pulumi:token-type:access_token:personal
       - run: npm install
       - uses: pulumi/actions@v6
